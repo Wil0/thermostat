@@ -36,7 +36,7 @@ $(document).ready(function() {
       var key =  '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric';
       var units = '&units=metric';
       $.get(url + key + units, function(data) {
-        $('#temp_outside').text(data.main.temp);
+        $('#temp_outside').text(Math.round(data.main.temp));
       });
     }
 
