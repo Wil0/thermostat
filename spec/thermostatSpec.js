@@ -82,6 +82,7 @@ describe('Thermostat', function(){
       for (var i = 1; i <= 5; i++) {
         thermostat.increaseTemperature();
       }
-      expect(thermostat.resetTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE)
+      thermostat.resetTemperature();
+      expect(thermostat.currentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
 });

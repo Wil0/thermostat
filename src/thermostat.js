@@ -57,3 +57,7 @@ Thermostat.prototype.colour = function() {
     return 'yellow';
   }
 };
+
+Thermostat.prototype.resetTemperature = function () {
+  this._temperature = this.DEFAULT_TEMPERATURE;
+};
