@@ -11,13 +11,21 @@
   <h1>THERMOMASTER X9000</h1>
   <div id="screen">
     <h3>
-      Temp:<p id="temperature"></p>
+      Temp: <span id="temperature"></span>
     </h3>
     <h3>
-      PSM Status:<p id='psm_status'></p>
+      PSM Status: <span id='psm_status'></span>
     </h3>
+    <h3>Temperature outside: <span id='temp_outside'></span></h3>
   </div>
   <div id="input">
+    <select id="city">
+      <option value="london">London</option>
+      <option value="newyork">New York</option>
+      <option value="paris">Paris</option>
+      <option value="tokyo">Tokyo</option>
+    </select>
+    <br>
     <input type="button" id="increase" value="Increase Temperature">
     <input type="button" id="decrease" value="Decrease Temperature">
     <input type="button" id="reset" value="Reset Temperature">
