@@ -20,17 +20,13 @@ Thermostat.prototype.increaseTemperature = function () {
 };
 
 Thermostat.prototype.decreaseTemperature = function () {
-  if (this.isMinimumTemperature()) {
-    return this.MINIMUN_TEMPERATURE;
+  if (!this.isMinimumTemperature()) {
+    this._temperature --;
   }
-  else {
-    return this._temperature --;
-  }
-
 };
 
 Thermostat.prototype.isMinimumTemperature = function () {
-  return this._temperature < this.MINIMUN_TEMPERATURE;
+  return this._temperature <= this.MINIMUN_TEMPERATURE;
 };
 
 Thermostat.prototype.isPowerSavingModeOn = function () {
