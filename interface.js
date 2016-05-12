@@ -31,8 +31,21 @@ $(document).ready(function() {
   $('#city').change(function() {
     var city = $('#city').val();
 
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
-    $('#temp_outside').text(data.main.temp);
-  });
+    function displayWeather(city) {
+      var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+      var key =  '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric';
+      var units = '&units=metric';
+      $.get(url + key + units, function(data) {
+        $('#temp_outside').text(data.main.temp);
+      });
+    }
+
+    displayWeather(city);
+
+      $('#city').submit(function(event) {
+        event.preventDefault();
+        var city = $('#city').val();
+        displayWeather(city);
+      });
   });
 });
