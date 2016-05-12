@@ -60,7 +60,7 @@ describe('Thermostat', function(){
 
   describe('Screen Colour', function() {
     it('is green when less than 18', function() {
-      for (var i = 0; i < 3; i++) {
+      for (var i = 1; i <= 3; i++) {
         thermostat.decreaseTemperature();
       }
       expect(thermostat.colour()).toEqual('green');
@@ -71,10 +71,17 @@ describe('Thermostat', function(){
     });
 
     it('is red when 25 or more', function() {
-      for (var i = 0; i < 5; i++) {
+      for (var i = 1; i <= 5; i++) {
         thermostat.increaseTemperature();
-        expect(thermostat.colour()).toEqual('red');
       }
+      expect(thermostat.colour()).toEqual('red');
     });
+  });
+
+  it('reset temperature back to 20 degrees', function() {
+      for (var i = 1; i <= 5; i++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.resetTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE)
   });
 });

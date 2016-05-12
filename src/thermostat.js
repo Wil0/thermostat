@@ -1,4 +1,4 @@
-'use strict';
+
 
 function Thermostat () {
   this._temperature = 20;
@@ -46,4 +46,14 @@ Thermostat.prototype.isMaximumTemperature = function() {
     return this._temperature === this.PSM_OFF_MAX_TEMP;
   }
   return this._temperature === this.PSM_ON_MAX_TEMP;
+};
+
+Thermostat.prototype.colour = function() {
+  if (this._temperature < 18) {
+    return 'green';
+  } else if (this._temperature > 24) {
+    return 'red';
+  } else {
+    return 'yellow';
+  }
 };
