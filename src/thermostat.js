@@ -35,13 +35,14 @@ Thermostat.prototype.isPowerSavingModeOn = function () {
 
 Thermostat.prototype.switchPowerSavingMode = function () {
   this._powerSavingMode = !this._powerSavingMode;
+  this._temperature = this.DEFAULT_TEMPERATURE;
 };
 
 Thermostat.prototype.isMaximumTemperature = function() {
   if (this.isPowerSavingModeOn() === false) {
-    return this._temperature === this.PSM_OFF_MAX_TEMP;
+    return this._temperature >= this.PSM_OFF_MAX_TEMP;
   }
-  return this._temperature === this.PSM_ON_MAX_TEMP;
+  return this._temperature >= this.PSM_ON_MAX_TEMP;
 };
 
 Thermostat.prototype.colour = function() {
@@ -56,4 +57,12 @@ Thermostat.prototype.colour = function() {
 
 Thermostat.prototype.resetTemperature = function () {
   this._temperature = this.DEFAULT_TEMPERATURE;
+};
+
+Thermostat.prototype.psmStatus = function () {
+  if(this.isPowerSavingModeOn() === true) {
+    return "ON";
+  } else {
+    return "OFF";
+  }
 };
