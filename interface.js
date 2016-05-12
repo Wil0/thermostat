@@ -26,5 +26,6 @@ $(document).ready(function() {
 
   function updateTemperature() {
     $('#temperature').text(thermostat.currentTemperature());
+     $('#screen').css('background', thermostat.colour());
   }
 });
